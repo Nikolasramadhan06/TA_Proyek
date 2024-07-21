@@ -42,35 +42,68 @@ include "../koneksi.php";
                                             <th>Nama Proyek</th>
                                             <th>Alamat</th>
                                             <th>Anggaran</th>
+                                            <th>Progres</th>
                                             <th>Latitude</th>
                                             <th>Longitude</th>
+                                            <th>Foto 25%</th>
+                                            <th>Foto 50%</th>
+                                            <th>Foto 75%</th>
+                                            <th>Foto 100%</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $no = 0;
-                                        $data = mysqli_query($koneksi, "select * from proyek");
-                                        while ($d = mysqli_fetch_array($data)) {
-                                            $no++;
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $no ?></td>
-                                                <td><b><a href="detail_data.php?id_proyek=<?php echo $d['id_proyek']; ?> "> <?php echo $d['nama_proyek']; ?> </a> </b></td>
-                                                <td><?php echo $d['alamat']; ?></td>
-                                                <td>Rp. <?php echo $d['anggaran']; ?></td>
-                                                <td><?php echo $d['latitude']; ?></td>
-                                                <td><?php echo $d['longitude']; ?></td>
-                                                <td>
-                                                    <a href="edit_data.php?id_proyek=<?php echo $d['id_proyek']; ?> " class="btn-sm btn-primary"><span class="fas fa-edit"></a>
-                                                    <a href="hapus_aksi.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"></a>
-                                                </td>
-                                            </tr>
-                            </div>
                         <?php
-                                        }
+                        $no = 0;
+                        $data = mysqli_query($koneksi, "SELECT * FROM proyek");
+                        while ($d = mysqli_fetch_array($data)) {
+                            $no++;
                         ?>
-                        </tbody>
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><b><a href="detail_data.php?id_proyek=<?php echo $d['id_proyek']; ?>"> <?php echo $d['nama_proyek']; ?> </a></b></td>
+                                <td><?php echo $d['alamat']; ?></td>
+                                <td>Rp. <?php echo $d['anggaran']; ?></td>
+                                <td><?php echo $d['progres']; ?>%</td>
+                                <td><?php echo $d['latitude']; ?></td>
+                                <td><?php echo $d['longitude']; ?></td>
+                                <td>
+                                    <?php if (!empty($d['foto_25'])): ?>
+                                        <img src="../admin/uploads/<?php echo $d['foto_25']; ?>" alt="Foto 25%" style="width:100px; height:auto;">
+                                    <?php else: ?>
+                                        <span>Belum Tersedia</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($d['foto_50'])): ?>
+                                        <img src="../admin/uploads/<?php echo $d['foto_50']; ?>" alt="Foto 50%" style="width:100px; height:auto;">
+                                    <?php else: ?>
+                                        <span>Belum Tersedia</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($d['foto_75'])): ?>
+                                        <img src="../admin/uploads/<?php echo $d['foto_75']; ?>" alt="Foto 75%" style="width:100px; height:auto;">
+                                    <?php else: ?>
+                                        <span>Belum Tersedia</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($d['foto_100'])): ?>
+                                        <img src="../admin/uploads/<?php echo $d['foto_100']; ?>" alt="Foto 100%" style="width:100px; height:auto;">
+                                    <?php else: ?>
+                                        <span>Belum Tersedia</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <a href="edit_data.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-primary"><span class="fas fa-edit"></span></a>
+                                    <a href="hapus_aksi.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"></span></a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
                         </table>
 
                         </div>

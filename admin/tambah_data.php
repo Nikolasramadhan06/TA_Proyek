@@ -25,7 +25,6 @@
                             <h6 class="m-0 font-weight-bold text-primary">Tambah Data</h6>
                         </div>
                         <div class="card-body">
-
                             <!-- Main content -->
                             <form class="form-horizontal style-form" style="margin-top: 10px;" action="tambah_aksi.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
                                 <div class="form-group">
@@ -49,7 +48,13 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-4 control-label">Anggaran</label>
                                     <div class="col-sm-6">
-                                        <input name="anggaran" class="form-control" type="text" type="text" placeholder="Anggaran" required />
+                                        <input name="anggaran" class="form-control" type="text" placeholder="Anggaran" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-4 control-label">Progres</label>
+                                    <div class="col-sm-6">
+                                        <input name="progres" class="form-control" type="text" placeholder="Progres" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -72,11 +77,8 @@
                                 </div>
                                 <div style="margin-top: 20px;"></div>
                             </form>
-
-
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
             </div>

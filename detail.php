@@ -3,6 +3,7 @@
 $id = $_GET['id_proyek'];
 include_once "ambildata_id.php";
 $obj = json_decode($data);
+
 $id_proyek = "";
 $nama_proyek = "";
 $alamat = "";
@@ -10,18 +11,26 @@ $deskripsi = "";
 $anggaran = "";
 $lat = "";
 $long = "";
+$foto_25 = "";
+$foto_50 = "";
+$foto_75 = "";
+$foto_100 = "";
+
 foreach ($obj->results as $item) {
-  $id_proyek .= $item->id_proyek;
-  $nama_proyek .= $item->nama_proyek;
-  $alamat .= $item->alamat;
-  $deskripsi .= $item->deskripsi;
-  $anggaran .= $item->anggaran;
-  $lat .= $item->latitude;
-  $long .= $item->longitude;
+    $id_proyek = $item->id_proyek;
+    $nama_proyek = $item->nama_proyek;
+    $alamat = $item->alamat;
+    $deskripsi = $item->deskripsi;
+    $anggaran = $item->anggaran;
+    $lat = $item->latitude;
+    $long = $item->longitude;
+    $foto_25 = $item->foto_25;
+    $foto_50 = $item->foto_50;
+    $foto_75 = $item->foto_75;
+    $foto_100 = $item->foto_100;
 }
 
 $title = "Detail dan Lokasi : " . $nama_proyek;
-//include_once "header.php"; 
 ?>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap"></script>
 
@@ -68,10 +77,9 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
   <div class="container">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="about-content col-lg-12">
-        <h1 class="text-white">
+        <h2 class="text-white">
           Detail Informasi Geografis Proyek Pembangunan
-        </h1>
-
+        </h2>
       </div>
     </div>
   </div>
@@ -81,16 +89,14 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
 <section class="about-info-area section-gap">
   <div class="container" style="padding-top: 120px;">
     <div class="row">
-
       <div class="col-md-7" data-aos="fade-up" data-aos-delay="200">
         <div class="panel panel-info panel-dashboard">
           <div class="panel-heading centered">
-            <h2 class="panel-title"><strong>Informasi Proyek </strong></h4>
+            <h2 class="panel-title"><strong>Informasi Proyek</strong></h2>
           </div>
           <div class="panel-body">
             <table class="table">
               <tr>
-                <!-- <th>Item</th> -->
                 <th>Detail</th>
               </tr>
               <tr>
@@ -125,13 +131,76 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
       <div class="col-md-5" data-aos="zoom-in">
         <div class="panel panel-info panel-dashboard">
           <div class="panel-heading centered">
-            <h2 class="panel-title"><strong>Lokasi</strong></h4>
+            <h2 class="panel-title"><strong>Lokasi</strong></h2>
           </div>
           <div class="panel-body">
             <div id="map-canvas" style="width:100%;height:380px;"></div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row" style="padding-top: 20px;">
+      <div class="col-md-12">
+        <div class="panel panel-info panel-dashboard">
+          <div class="panel-heading centered">
+            <h2 class="panel-title"><strong>Progres Gambar</strong></h2>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Progres</th>
+                  <th scope="col">Gambar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>25%</td>
+                  <td>
+                    <?php if (!empty($foto_25)): ?>
+                      <img src="admin/uploads/<?php echo $foto_25 ?>" alt="Progres 25%" style="width:100%; height:auto;">
+                    <?php else: ?>
+                      <span>Belum Tersedia</span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>50%</td>
+                  <td>
+                    <?php if (!empty($foto_50)): ?>
+                      <img src="admin/uploads/<?php echo $foto_50 ?>" alt="Progres 50%" style="width:100%; height:auto;">
+                    <?php else: ?>
+                      <span>Belum Tersedia</span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>75%</td>
+                  <td>
+                    <?php if (!empty($foto_75)): ?>
+                      <img src="admin/uploads/<?php echo $foto_75 ?>" alt="Progres 75%" style="width:100%; height:auto;">
+                    <?php else: ?>
+                      <span>Belum Tersedia</span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>100%</td>
+                  <td>
+                    <?php if (!empty($foto_100)): ?>
+                      <img src="admin/uploads/<?php echo $foto_100 ?>" alt="Progres 100%" style="width:100%; height:auto;">
+                    <?php else: ?>
+                      <span>Belum Tersedia</span>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- End about-info Area -->
 <?php include "footer.php"; ?>

@@ -29,7 +29,7 @@
                             <?php
                             include '../koneksi.php';
                             $id = $_GET['id_proyek'];
-                            $query = mysqli_query($koneksi, "select * from proyek where id_proyek='$id'");
+                            $query = mysqli_query($koneksi, "SELECT * FROM proyek WHERE id_proyek='$id'");
                             $data  = mysqli_fetch_array($query);
                             ?>
 
@@ -40,7 +40,6 @@
                                         <label class="col-sm-2 col-sm-2 control-label">ID Proyek</label>
                                         <div class="col-sm-8">
                                             <input name="id_proyek" type="text" id="id_proyek" class="form-control" value="<?php echo $data['id_proyek']; ?>" readonly />
-                                            <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -69,6 +68,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Progres</label>
+                                        <div class="col-sm-8">
+                                            <input name="progres" class="form-control" id="progres" type="text" value="<?php echo $data['progres']; ?>" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Latitude</label>
                                         <div class="col-sm-8">
                                             <input name="latitude" class="form-control" id="latitude" type="text" value="<?php echo $data['latitude']; ?>" required />
@@ -80,6 +85,33 @@
                                             <input name="longitude" class="form-control" id="longitude" type="text" value="<?php echo $data['longitude']; ?>" required />
                                         </div>
                                     </div>
+
+                                    <!-- Foto -->
+                                    <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Foto 25%</label>
+    <div class="col-sm-8">
+        <input name="foto_25" type="file" id="foto_25" class="form-control" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Foto 50%</label>
+    <div class="col-sm-8">
+        <input name="foto_50" type="file" id="foto_50" class="form-control" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Foto 75%</label>
+    <div class="col-sm-8">
+        <input name="foto_75" type="file" id="foto_75" class="form-control" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Foto 100%</label>
+    <div class="col-sm-8">
+        <input name="foto_100" type="file" id="foto_100" class="form-control" />
+    </div>
+</div>
+
                                     <div class="form-group" style="margin-bottom: 20px;">
                                         <label class="col-sm-2 col-sm-2 control-label"></label>
                                         <div class="col-sm-8">

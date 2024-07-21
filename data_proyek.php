@@ -5,9 +5,9 @@
   <div class="container">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="about-content col-lg-12">
-        <h1 class="text-white">
+        <h2 class="text-white">
           Data Proyek
-        </h1>
+        </h2>
         <p class="text-white link-nav">Halaman ini memuat informasi Pembangunan Proyek</p>
       </div>
     </div>
@@ -34,6 +34,7 @@
                       <th scope="col">Nama Proyek</th>
                       <th scope="col">Alamat</th>
                       <th scope="col">Anggaran</th>
+                      <th scope="col">Progres</th>
                       <th scope="col">Aksi</th>
                     </tr>
                   </thead>
@@ -50,6 +51,13 @@
                           <td><?php echo $item->nama_proyek; ?></td>
                           <td><?php echo $item->alamat; ?></td>
                           <td>Rp. <?php echo $item->anggaran; ?></td>
+                          <td>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: <?php echo $item->progres; ?>%;" aria-valuenow="<?php echo $item->progres; ?>" aria-valuemin="0" aria-valuemax="100">
+                           <?php echo $item->progres; ?>%
+                           </div>
+                          </div>
+                          </td>
                           <td>
                             <a href="detail.php?id_proyek=<?php echo $item->id_proyek; ?>" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail dan Lokasi">
                               <i class="fa fa-map-marker"></i> Detail dan Lokasi
