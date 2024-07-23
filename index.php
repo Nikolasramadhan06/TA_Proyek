@@ -66,6 +66,9 @@
           <a class="nav-link" href="data_proyek.php">Data Proyek</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="history_proyek.php">History Proyek</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="admin/login.php">Login</a>
         </li>
     </ul>
