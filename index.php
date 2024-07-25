@@ -89,7 +89,7 @@
         <p class="text-white">
           Sistem informasi ini merupakan aplikasi pemetaan geografis Pembangunan Proyek.
         </p>
-        <a href="#peta_proyek" class="primary-btn text-uppercase">Lihat Detail</a>
+        <a href="#peta_proyek" class="primary-btn text-uppercase">Lihat Titik Proyek</a>
       </div>
     </div>
   </div>

@@ -32,9 +32,9 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tambah_data.php">
-            <i class="fas fa-fw fa-user-friends"></i>
-            <span>Tambah Data</span></a>
+        <a class="nav-link" href="tampil_history.php">
+            <i class="fas fa-calendar-plus"></i>
+            <span>History Proyek</span></a>
     </li>
 
     <li class="nav-item">

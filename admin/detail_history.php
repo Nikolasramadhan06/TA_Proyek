@@ -22,8 +22,8 @@ if (empty($_SESSION['username'])) {
                     <?php include "menu_topbar.php"; ?>
 
                     <?php
-                    $id = $_GET['id_proyek'];
-                    $query = mysqli_query($koneksi, "select * from proyek where id_proyek='$id'");
+                    $id = $_GET['id'];
+                    $query = mysqli_query($koneksi, "select * from hostory where id='$id'");
                     $data  = mysqli_fetch_array($query);
                     ?>
 
@@ -32,7 +32,7 @@ if (empty($_SESSION['username'])) {
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Detail Proyek <?php echo $data['nama_proyek']; ?></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Detail Proyek <?php echo $data['nama_proyekselesai']; ?></h1>
                     </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -46,27 +46,19 @@ if (empty($_SESSION['username'])) {
                                 <table id="example" class="table table-hover table-bordered">
                                     <tr>
                                         <td width="250">Nama Proyek</td>
-                                        <td width="550"><?php echo $data['nama_proyek']; ?></td>
+                                        <td width="550"><?php echo $data['nama_proyekselesai']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Alamat</td>
-                                        <td><?php echo $data['alamat']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Deskripsi</td>
-                                        <td><?php echo $data['deskripsi']; ?></td>
+                                        <td><?php echo $data['alamat_proyekselesai']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Anggaran</td>
-                                        <td>Rp. <?php echo $data['anggaran']; ?></td>
+                                        <td>Rp. <?php echo $data['anggaran_proyekselesai']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Latitude</td>
-                                        <td><?php echo $data['latitude']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Longitude</td>
-                                        <td><?php echo $data['longitude']; ?></td>
+                                        <td>Foto</td>
+                                        <td><?php echo $data['foto_proyekselesai']; ?></td>
                                     </tr>
                                 </table>
 
