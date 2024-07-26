@@ -88,32 +88,32 @@
 
                                     <!-- Foto -->
                                     <div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label">Foto 25%</label>
-    <div class="col-sm-8">
-        <input name="foto_25" type="file" id="foto_25" class="form-control" />
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label">Foto 50%</label>
-    <div class="col-sm-8">
-        <input name="foto_50" type="file" id="foto_50" class="form-control" />
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label">Foto 75%</label>
-    <div class="col-sm-8">
-        <input name="foto_75" type="file" id="foto_75" class="form-control" />
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label">Foto 100%</label>
-    <div class="col-sm-8">
-        <input name="foto_100" type="file" id="foto_100" class="form-control" />
-    </div>
-</div>
+                                    <label class="col-sm-2 col-sm-2 control-label">Foto 25%</label>
+                                        <div class="col-sm-8">
+                                            <input name="foto_25" type="file" id="foto_25" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Foto 50%</label>
+                                        <div class="col-sm-8">
+                                            <input name="foto_50" type="file" id="foto_50" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Foto 75%</label>
+                                        <div class="col-sm-8">
+                                            <input name="foto_75" type="file" id="foto_75" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Foto 100%</label>
+                                        <div class="col-sm-8">
+                                            <input name="foto_100" type="file" id="foto_100" class="form-control" />
+                                        </div>
+                                    </div>
 
                                     <div class="form-group" style="margin-bottom: 20px;">
-                                        <label class="col-sm-2 col-sm-2 control-label"></label>
+                                    <label class="col-sm-2 col-sm-2 control-label"></label>
                                         <div class="col-sm-8">
                                             <input type="submit" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
                                         </div>

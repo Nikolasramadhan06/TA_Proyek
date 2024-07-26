@@ -1,0 +1,50 @@
+<?php
+// Koneksi database
+include '../koneksi.php';
+
+// Menangkap data yang dikirim dari form
+$id = $_POST['id'];
+$nama_proyekselesai = $_POST['nama_proyekselesai'];
+$alamat_proyekselesai = $_POST['alamat_proyekselesai'];
+$anggaran_proyekselesai = $_POST['anggaran_proyekselesai'];
+$keterangan = $_POST['keterangan'];
+
+// Fungsi untuk menangani upload file
+function uploadFile($fileInputName) {
+    if (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] == 0) {
+        $fileName = basename($_FILES[$fileInputName]["name"]);
+        $targetFile = '../admin/uploads/' . $fileName;
+        $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Validasi file
+        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+        if (in_array($fileType, $allowedTypes) && move_uploaded_file($_FILES[$fileInputName]["tmp_name"], $targetFile)) {
+            return $fileName; // Return only the file name to store in database
+        } else {
+            return null;
+        }
+    }
+    return null;
+}
+
+// Menangani upload foto
+$foto_proyekselesai = uploadFile('foto_proyekselesai');
+
+// Menyiapkan query untuk update data
+$updateQuery = "UPDATE hostory SET 
+    nama_proyekselesai='$nama_proyekselesai', 
+    alamat_proyekselesai='$alamat_proyekselesai', 
+    anggaran_proyekselesai='$anggaran_proyekselesai', 
+    keterangan='$keterangan', 
+    foto_proyekselesai='$foto_proyekselesai'
+    WHERE id='$id'";
+
+// Menjalankan query update dan menangani error
+if (mysqli_query($koneksi, $updateQuery)) {
+    // Mengalihkan halaman kembali ke tampil_history.php
+    header("location:tampil_history.php");
+    exit(); // Pastikan untuk menghentikan eksekusi skrip setelah pengalihan
+} else {
+    echo "Error updating record: " . mysqli_error($koneksi);
+}
+?>

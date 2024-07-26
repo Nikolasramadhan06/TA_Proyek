@@ -9,6 +9,7 @@ $id = "";
 $nama_proyekselesai = "";
 $alamat_proyekselesai = "";
 $anggaran_proyekselesai = "";
+$keterangan = "";
 $foto_proyekselesai = "";
 
 foreach ($obj->results as $item) {
@@ -16,6 +17,7 @@ foreach ($obj->results as $item) {
     $nama_proyekselesai = $item->nama_proyekselesai;
     $alamat_proyekselesai = $item->alamat_proyekselesai;
     $anggaran_proyekselesai = $item->anggaran_proyekselesai;
+    $keterangan = $item->keterangan;
     $foto_proyekselesai = $item->foto_proyekselesai;
 }
 
@@ -67,6 +69,12 @@ $title = "Detail dan Lokasi : " . $nama_proyekselesai;
                 <td>Anggaran</td>
                 <td>
                   <h5>Rp. <?php echo $anggaran_proyekselesai ?></h5>
+                </td>
+              </tr>
+              <tr>
+                <td>Keterangan</td>
+                <td>
+                  <h5><?php echo $keterangan ?></h5>
                 </td>
               </tr>
             </table>

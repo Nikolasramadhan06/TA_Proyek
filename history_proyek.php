@@ -34,6 +34,7 @@
                       <th scope="col">Nama Proyek</th>
                       <th scope="col">Alamat</th>
                       <th scope="col">Anggaran</th>
+                      <th scope="col">Keterangan</th>
                       <th scope="col">Aksi</th>
                     </tr>
                   </thead>
@@ -51,6 +52,7 @@
                           <td><?php echo htmlspecialchars($item->nama_proyekselesai); ?></td>
                           <td><?php echo htmlspecialchars($item->alamat_proyekselesai); ?></td>
                           <td>Rp. <?php echo number_format($item->anggaran_proyekselesai, 0, ',', '.'); ?></td>
+                          <td><?php echo htmlspecialchars($item->keterangan); ?></td>
                           <td>
                             <a href="detailhistory.php?id=<?php echo htmlspecialchars($item->id); ?>" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail dan Lokasi">
                               <i class="fa fa-map-marker"></i> Detail dan Lokasi
