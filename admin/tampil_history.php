@@ -69,7 +69,7 @@ include "../koneksi.php";
                                 </td>
                                 <td>
                                     <a href="edit_history.php?id=<?php echo $d['id']; ?>" class="btn-sm btn-primary"><span class="fas fa-edit"></span></a>
-                                    <a href="hapus_hapus.php?id_proyek=<?php echo $d['id']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"></span></a>
+                                    <a href="hapus_history.php?id=<?php echo $d['id']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"></span></a>
                                 </td>
                             </tr>
                         <?php
