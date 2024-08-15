@@ -24,7 +24,7 @@ include "../koneksi.php";
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-1">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Data Proyek CV. PUTRI NAIZ</h6>
                         </div>
@@ -49,6 +49,7 @@ include "../koneksi.php";
                                             <th>Foto 50%</th>
                                             <th>Foto 75%</th>
                                             <th>Foto 100%</th>
+                                            <th>Cetak</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -96,7 +97,11 @@ include "../koneksi.php";
                                     <?php endif; ?>
                                 </td>
                                 <td>
+                                    <a href="cetak.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm  btn-primary" ><span class='fas fa-print'> Cetak</span></a>
+                                </td>
+                                <td>
                                     <a href="edit_data.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-primary"><span class="fas fa-edit"></span></a>
+                                    <p></p>
                                     <a href="hapus_aksi.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"></span></a>
                                 </td>
                             </tr>
