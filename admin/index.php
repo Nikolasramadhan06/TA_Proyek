@@ -26,7 +26,7 @@ include "../koneksi.php";
                 <center><img src="img/naiz.png" alt="banyumaslogo" width="150px"> </center>
                 <br>
                 <h2>
-                    <center><b>SISTEM INFORMASI GEOGRAFIS</b> </center>
+                    <center><b>SISTEM INFORMASI MONITORING DAN PELAPORAN</b> </center>
                 </h2>
                 <h2>
                     <center><b>PROYEK CV. PUTRI NAIZ </b> </center>

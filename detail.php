@@ -78,7 +78,7 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
     <div class="row d-flex align-items-center justify-content-center">
       <div class="about-content col-lg-12">
         <h2 class="text-white">
-          Detail Informasi Geografis Proyek Pembangunan
+          Detail Informasi Proyek Pembangunan
         </h2>
       </div>
     </div>

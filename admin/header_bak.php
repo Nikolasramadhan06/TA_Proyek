@@ -17,7 +17,7 @@ include '../koneksi.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Panel Sistem Informasi Geografis CV. PUTRI NAIZ</title>
+    <title>Admin Panel Sistem Informasi Monitoring dan Pelaporan CV. PUTRI NAIZ</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,7 +44,7 @@ include '../koneksi.php';
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                <img class="rounded-circle" src="img/anaiz.png" width="45px" height="45px"  alt="...">   
+                <img class="rounded-circle" src="img/naiz.png" width="45px" height="45px"  alt="...">   
                 </div>
                 <div class="sidebar-brand-text mx-3">CV. PUTRI NAIZ</div>
                

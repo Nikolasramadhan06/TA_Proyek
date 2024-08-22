@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon ">
-            <img class="rounded-circle" src="img/anaiz.png" width="45px" height="45px" alt="...">
+            <img class="rounded-circle" src="img/naiz.png" width="45px" height="45px" alt="...">
         </div>
         <div class="sidebar-brand-text mx-3">CV. PUTRI NAIZ</div>
 

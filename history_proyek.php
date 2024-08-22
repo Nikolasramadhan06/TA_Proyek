@@ -8,7 +8,6 @@
         <h2 class="text-white">
           History Proyek
         </h2>
-        <p class="text-white link-nav">Halaman ini memuat informasi History Pembangunan Proyek</p>
       </div>
     </div>
   </div>

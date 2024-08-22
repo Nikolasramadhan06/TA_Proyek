@@ -8,7 +8,6 @@
         <h2 class="text-white">
           Data Proyek
         </h2>
-        <p class="text-white link-nav">Halaman ini memuat informasi Pembangunan Proyek</p>
       </div>
     </div>
   </div>

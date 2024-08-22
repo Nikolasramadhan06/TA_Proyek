@@ -9,7 +9,7 @@
   
   <!-- Title -->
   <title>CV. PUTRI NAIZ</title>
-  <link rel="icon" href="admin/img/anaiz.png">
+  <link rel="icon" href="admin/img/naiz.png">
   <!-- Favicon -->
   <link rel="shortcut icon" href="img/fav.png">
   
@@ -53,7 +53,7 @@
 <!-- Navbar with Bootstrap 5 and FontAwesome icon -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-  <a href="index.php"><img src="admin/img/anaiz.png" width="50px" height="50px" alt="" title="" /></a>
+  <a href="index.php"><img src="admin/img/naiz.png" width="50px" height="50px" alt="" title="" /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -84,12 +84,8 @@
   <div class="container">
     <div class="row fullscreen align-items-center justify-content-between">
       <div class="col-lg-6 col-md-6 banner-left">
-        <h6 class="text-white">SISTEM INFORMASI GEOGRAFIS PROYEK</h6>
         <h1 class="text-white">CV. PUTRI NAIZ</h1>
-        <p class="text-white">
-          Sistem informasi ini merupakan aplikasi pemetaan geografis Pembangunan Proyek.
-        </p>
-        <a href="#peta_proyek" class="primary-btn text-uppercase">Lihat Titik Proyek</a>
+        <a href="#peta_proyek" class="btn btn-info text-uppercase">Lihat Titik Proyek</a>
       </div>
     </div>
   </div>

@@ -7,7 +7,7 @@
 					
 					<div class="row footer-bottom d-flex justify-content-between align-items-center">
 						<p class="col-lg-8 col-sm-12 footer-text m-0">
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Nikolas Ramadhan || Sistem Informasi Geografis CV. PUTRI NAIZ</i></a></p>
+						 &copy;<script>document.write(new Date().getFullYear());</script>  CV. PUTRI NAIZ</i></a></p>
 						<div class="col-lg-4 col-sm-12 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-instagram"></i></a>

@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>COPYRIGHT &copy; SIG PROYEK CV NAIZ 2024</span>
+            <span>COPYRIGHT &copy; CV PUTRI NAIZ </span>
         </div>
     </div>
 </footer>
