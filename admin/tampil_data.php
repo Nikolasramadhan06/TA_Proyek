@@ -49,6 +49,7 @@ include "../koneksi.php";
                                             <th>Foto 50%</th>
                                             <th>Foto 75%</th>
                                             <th>Foto 100%</th>
+                                            <th>History</th>
                                             <th>Cetak</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -64,7 +65,8 @@ include "../koneksi.php";
                                 <td><?php echo $no; ?></td>
                                 <td><b><a href="detail_data.php?id_proyek=<?php echo $d['id_proyek']; ?>"> <?php echo $d['nama_proyek']; ?> </a></b></td>
                                 <td><?php echo $d['alamat']; ?></td>
-                                <td>Rp. <?php echo $d['anggaran']; ?></td>
+                                <td>Rp. <?php echo number_format($d['anggaran'], 0, ',', '.'); ?></td>
+
                                 <td><?php echo $d['progres']; ?>%</td>
                                 <td><?php echo $d['latitude']; ?></td>
                                 <td><?php echo $d['longitude']; ?></td>
@@ -97,12 +99,15 @@ include "../koneksi.php";
                                     <?php endif; ?>
                                 </td>
                                 <td>
+                                    <a href="tambah_history.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm  btn-success" ><span class='fas fa-check-double'> Selesai</span></a>
+                                </td>
+                                <td>
                                     <a href="cetak.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm  btn-primary" ><span class='fas fa-print'> Cetak</span></a>
                                 </td>
                                 <td>
-                                    <a href="edit_data.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-primary"><span class="fas fa-edit"></span></a>
+                                    <a href="edit_data.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-primary"><span class="fas fa-edit"> Ubah</span></a>
                                     <p></p>
-                                    <a href="hapus_aksi.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"></span></a>
+                                    <a href="hapus_aksi.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm btn-danger"><span class="fas fa-trash"> Hapus</span></a>
                                 </td>
                             </tr>
                         <?php

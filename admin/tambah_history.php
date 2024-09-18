@@ -1,3 +1,16 @@
+<?php
+session_start();
+if ($_SESSION['status'] != "login") {
+    header("location:../tampil_data.php?pesan=belum_login");
+}
+include "../koneksi.php";
+
+// Mengambil data proyek berdasarkan ID
+$id_proyek = $_GET['id_proyek'];
+$query = mysqli_query($koneksi, "SELECT * FROM proyek WHERE id_proyek='$id_proyek'");
+$data = mysqli_fetch_array($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include "header.php"; ?>
@@ -30,19 +43,19 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label">Nama Proyek</label>
                                     <div class="col-sm-6">
-                                        <input name="nama_proyekselesai" type="text" class="form-control" placeholder="Nama Proyek" required />
+                                        <input name="nama_proyekselesai" type="text" class="form-control" value="<?php echo $data['nama_proyek']; ?>" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-4 control-label">Alamat</label>
                                     <div class="col-sm-6">
-                                        <input name="alamat_proyekselesai" class="form-control" type="text" placeholder="Alamat" required />
+                                        <input name="alamat_proyekselesai" class="form-control" type="text" value="<?php echo $data['alamat']; ?>" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-4 control-label">Anggaran</label>
                                     <div class="col-sm-6">
-                                        <input name="anggaran_proyekselesai" class="form-control" type="text" placeholder="Anggaran" required />
+                                        <input name="anggaran_proyekselesai" class="form-control" type="text" value="<?php echo $data['anggaran']; ?>" required />
                                     </div>
                                 </div>
                                 <div class="form-group">

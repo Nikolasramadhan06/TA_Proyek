@@ -26,7 +26,7 @@ include "../koneksi.php";
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Proyek CV. PUTRI NAIZ</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data History Proyek CV. PUTRI NAIZ</h6>
                         </div>
                         
                         <div class="card-body">
@@ -58,7 +58,7 @@ include "../koneksi.php";
                                 <td><?php echo $no; ?></td>
                                 <td><b><a href="detail_history.php?id=<?php echo $d['id']; ?>"> <?php echo $d['nama_proyekselesai']; ?> </a></b></td>
                                 <td><?php echo $d['alamat_proyekselesai']; ?></td>
-                                <td>Rp. <?php echo $d['anggaran_proyekselesai']; ?></td>
+                                <td>Rp. <?php echo number_format($d['anggaran_proyekselesai'], 0, ',', '.'); ?></td>
                                 <td><?php echo $d['keterangan']; ?></td>
                                 <td>
                                     <?php if (!empty($d['foto_proyekselesai'])): ?>

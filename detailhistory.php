@@ -68,7 +68,7 @@ $title = "Detail dan Lokasi : " . $nama_proyekselesai;
               <tr>
                 <td>Anggaran</td>
                 <td>
-                  <h5>Rp. <?php echo $anggaran_proyekselesai ?></h5>
+                  <h5>Rp. <?php echo number_format($item->anggaran_proyekselesai, 0, ',', '.'); ?></h5>
                 </td>
               </tr>
               <tr>

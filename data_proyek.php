@@ -49,7 +49,7 @@
                           <th scope="row"><?php echo $no; ?></th>
                           <td><?php echo $item->nama_proyek; ?></td>
                           <td><?php echo $item->alamat; ?></td>
-                          <td>Rp. <?php echo $item->anggaran; ?></td>
+                          <td>Rp. <?php echo number_format($item->anggaran, 0, ',', '.'); ?></td>
                           <td>
                           <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: <?php echo $item->progres; ?>%;" aria-valuenow="<?php echo $item->progres; ?>" aria-valuemin="0" aria-valuemax="100">

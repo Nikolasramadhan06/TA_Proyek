@@ -10,7 +10,7 @@ $anggaran_proyekselesai = $_POST['anggaran_proyekselesai'];
 $keterangan = $_POST['keterangan'];
 
 // Fungsi untuk menangani upload file
-function uploadFile($fileInputName) {
+function uploadFile($fileInputName, $currentFile) {
     if (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] == 0) {
         $fileName = basename($_FILES[$fileInputName]["name"]);
         $targetFile = '../admin/uploads/' . $fileName;
@@ -21,14 +21,18 @@ function uploadFile($fileInputName) {
         if (in_array($fileType, $allowedTypes) && move_uploaded_file($_FILES[$fileInputName]["tmp_name"], $targetFile)) {
             return $fileName; // Return only the file name to store in database
         } else {
-            return null;
+            return $currentFile; // Return current file if upload fails
         }
     }
-    return null;
+    return $currentFile; // Return current file if no new file is uploaded
 }
 
+// Ambil data foto yang ada dari database
+$query = mysqli_query($koneksi, "SELECT * FROM hostory WHERE id='$id'");
+$data = mysqli_fetch_array($query);
+
 // Menangani upload foto
-$foto_proyekselesai = uploadFile('foto_proyekselesai');
+$foto_proyekselesai = uploadFile('foto_proyekselesai', $data['foto_proyekselesai']);
 
 // Menyiapkan query untuk update data
 $updateQuery = "UPDATE hostory SET 

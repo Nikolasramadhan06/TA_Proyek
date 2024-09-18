@@ -49,8 +49,8 @@
     }
   </style>
 </head>
+
 <body>
-<!-- Navbar with Bootstrap 5 and FontAwesome icon -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
   <a href="index.php"><img src="admin/img/naiz.png" width="50px" height="50px" alt="" title="" /></a>
