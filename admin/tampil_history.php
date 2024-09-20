@@ -38,16 +38,20 @@ include "../koneksi.php";
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>NO</th>
-                                            <th>Nama Proyek</th>
-                                            <th>Alamat</th>
-                                            <th>Anggaran</th>
-                                            <th>Keterangan</th>
-                                            <th>Foto</th>
-                                            <th>Aksi</th>
+                                        <th>NO</th>
+                                        <th>Nama Proyek</th>
+                                        <th>Alamat</th>
+                                        <th>Anggaran</th>
+                                        <th>Keterangan</th>
+                                        <th>Latitude</th>
+                                        <th>Longitude</th>
+                                        <th>Tanggal Mulai</th>
+                                        <th>Tanggal Selesai</th>
+                                        <th>Foto Akhir</th>
+                                        <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                        <tbody>
                         <?php
                         $no = 0;
                         $data = mysqli_query($koneksi, "SELECT * FROM hostory");
@@ -60,6 +64,10 @@ include "../koneksi.php";
                                 <td><?php echo $d['alamat_proyekselesai']; ?></td>
                                 <td>Rp. <?php echo number_format($d['anggaran_proyekselesai'], 0, ',', '.'); ?></td>
                                 <td><?php echo $d['keterangan']; ?></td>
+                                <td><?php echo $d['latitude']; ?></td>
+                                <td><?php echo $d['longitude']; ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($d['tanggal_mulai'])); ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($d['tanggal_selesai'])); ?></td>
                                 <td>
                                     <?php if (!empty($d['foto_proyekselesai'])): ?>
                                         <img src="uploads/<?php echo $d['foto_proyekselesai']; ?>" alt="Foto" style="width:100px; height:auto;">

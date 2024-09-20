@@ -9,6 +9,8 @@ $nama_proyek = "";
 $alamat = "";
 $deskripsi = "";
 $anggaran = "";
+$tanggal_mulai = "";
+$tanggal_selesai = "";
 $lat = "";
 $long = "";
 $foto_25 = "";
@@ -22,6 +24,8 @@ foreach ($obj->results as $item) {
     $alamat = $item->alamat;
     $deskripsi = $item->deskripsi;
     $anggaran = $item->anggaran;
+    $tanggal_mulai = $item->tanggal_mulai;
+    $tanggal_selesai = $item->tanggal_selesai;
     $lat = $item->latitude;
     $long = $item->longitude;
     $foto_25 = $item->foto_25;
@@ -117,6 +121,27 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
                   <h5><?php echo $deskripsi ?></h5>
                 </td>
               </tr>
+              <tr>
+              <tr>
+                <td>Tanggal Mulai</td>
+                <td>
+                <h5>
+                  <?php
+                    $tanggal_mulai = $item->tanggal_mulai;
+                    echo date("d-m-Y", strtotime($tanggal_mulai));
+                  ?>
+                </h5>
+              </td>
+              </tr>
+              <td>Tanggal Selesai</td>
+              <td>
+                <h5>
+                  <?php
+                    $tanggal_selesai = $item->tanggal_selesai;
+                    echo date("d-m-Y", strtotime($tanggal_selesai));
+                  ?>
+                </h5>
+              </td>
               <tr>
                 <td>Anggaran</td>
                 <td>

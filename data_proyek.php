@@ -34,6 +34,8 @@
                       <th scope="col">Alamat</th>
                       <th scope="col">Anggaran</th>
                       <th scope="col">Progres</th>
+                      <th scope="col">Tanggal Mulai</th>
+                      <th scope="col">Tanggal Selesai</th>
                       <th scope="col">Aksi</th>
                     </tr>
                   </thead>
@@ -57,6 +59,8 @@
                            </div>
                           </div>
                           </td>
+                          <td><?php echo $item->tanggal_mulai; ?></td>
+                          <td><?php echo $item->tanggal_selesai; ?></td>
                           <td>
                             <a href="detail.php?id_proyek=<?php echo $item->id_proyek; ?>" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail dan Lokasi">
                               <i class="fa fa-map-marker"></i> Detail dan Lokasi

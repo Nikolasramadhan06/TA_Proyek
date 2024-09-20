@@ -45,6 +45,8 @@ include "../koneksi.php";
                                             <th>Progres</th>
                                             <th>Latitude</th>
                                             <th>Longitude</th>
+                                            <th>Tanggal Mulai</th>
+                                            <th>Tanggal Selesai</th>
                                             <th>Foto 25%</th>
                                             <th>Foto 50%</th>
                                             <th>Foto 75%</th>
@@ -66,10 +68,27 @@ include "../koneksi.php";
                                 <td><b><a href="detail_data.php?id_proyek=<?php echo $d['id_proyek']; ?>"> <?php echo $d['nama_proyek']; ?> </a></b></td>
                                 <td><?php echo $d['alamat']; ?></td>
                                 <td>Rp. <?php echo number_format($d['anggaran'], 0, ',', '.'); ?></td>
-
                                 <td><?php echo $d['progres']; ?>%</td>
                                 <td><?php echo $d['latitude']; ?></td>
                                 <td><?php echo $d['longitude']; ?></td>
+                                <td>
+                                    <?php 
+                                    if (!empty($d['tanggal_mulai'])) {
+                                        echo date('d-m-Y', strtotime($d['tanggal_mulai']));
+                                    } else {
+                                        echo "-"; // Tampilkan tanda strip atau teks lain jika data kosong
+                                    }
+                                    ?>
+                                    </td>
+                                <td>
+                                    <?php 
+                                    if (!empty($d['tanggal_selesai'])) {
+                                      echo date('d-m-Y', strtotime($d['tanggal_selesai']));
+                                    } else {
+                                        echo "-"; // Tampilkan tanda strip atau teks lain jika data kosong
+                                    }
+                                    ?>
+                                </td>
                                 <td>
                                     <?php if (!empty($d['foto_25'])): ?>
                                         <img src="../admin/uploads/<?php echo $d['foto_25']; ?>" alt="Foto 25%" style="width:100px; height:auto;">

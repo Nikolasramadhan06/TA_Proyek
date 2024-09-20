@@ -54,14 +54,69 @@ if (empty($_SESSION['username'])) {
                                     </tr>
                                     <tr>
                                         <td>Anggaran</td>
-                                        <td>Rp. <?php echo $data['anggaran_proyekselesai']; ?></td>
+                                        <td>Rp. <?php echo number_format($data['anggaran_proyekselesai'], 0, ',', '.'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Foto</td>
-                                        <td><?php echo $data['foto_proyekselesai']; ?></td>
-                                    </tr>
+                                    <td>Tanggal Mulai</td>
+                                    <td><?php echo date('d-m-Y', strtotime($data['tanggal_mulai'])); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Selesai</td>
+                                    <td><?php echo date('d-m-Y', strtotime($data['tanggal_selesai'])); ?></td>
+                                </tr>
+                                <tr>
+                                    <tr>
+                                    <td>Foto 25%</td>
+                                    <td>
+                                        <?php if (!empty($data['foto_25'])): ?>
+                                            <img src="uploads/<?php echo $data['foto_25']; ?>" class="img-thumbnail" width="200px" />
+                                        <?php else: ?>
+                                            Tidak ada foto
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Foto 50%</td>
+                                    <td>
+                                        <?php if (!empty($data['foto_50'])): ?>
+                                            <img src="uploads/<?php echo $data['foto_50']; ?>" class="img-thumbnail" width="200px" />
+                                        <?php else: ?>
+                                            Tidak ada foto
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Foto 75%</td>
+                                    <td>
+                                        <?php if (!empty($data['foto_75'])): ?>
+                                            <img src="uploads/<?php echo $data['foto_75']; ?>" class="img-thumbnail" width="200px" />
+                                        <?php else: ?>
+                                            Tidak ada foto
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Foto 100%</td>
+                                    <td>
+                                        <?php if (!empty($data['foto_100'])): ?>
+                                            <img src="uploads/<?php echo $data['foto_100']; ?>" class="img-thumbnail" width="200px" />
+                                        <?php else: ?>
+                                            Tidak ada foto
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Foto Proyek Selesai</td>
+                                    <td>
+                                        <?php if (!empty($data['foto_proyekselesai'])): ?>
+                                            <img src="uploads/<?php echo $data['foto_proyekselesai']; ?>" class="img-thumbnail" width="200px" />
+                                        <?php else: ?>
+                                            Tidak ada foto
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
                                 </table>
-
+                                <a href="cetak_history.php?id=<?php echo $data['id']; ?>" class="btn-sm  btn-primary" ><span class='fas fa-print'> Cetak</span></a>
                             </div>
                         </div>
                     </div>

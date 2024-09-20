@@ -58,6 +58,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 col-sm-4 control-label">Tanggal Mulai</label>
+                                    <div class="col-sm-6">
+                                        <input name="tanggal_mulai" type="date" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-4 control-label">Tanggal Selesai</label>
+                                    <div class="col-sm-6">
+                                        <input name="tanggal_selesai" type="date" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-2 col-sm-4 control-label">Latitude</label>
                                     <div class="col-sm-6">
                                         <input name="latitude" class="form-control" type="text" placeholder="-7.3811577" required />
