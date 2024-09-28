@@ -157,6 +157,7 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
         <div class="panel panel-info panel-dashboard">
           <div class="panel-heading centered">
             <h2 class="panel-title"><strong>Lokasi</strong></h2>
+            <p></p>
           </div>
           <div class="panel-body">
             <div id="map-canvas" style="width:100%;height:380px;"></div>
@@ -164,12 +165,14 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
         </div>
       </div>
     </div>
+    <p></p>
     <div class="row" style="padding-top: 20px;">
       <div class="col-md-12">
         <div class="panel panel-info panel-dashboard">
           <div class="panel-heading centered">
-            <h2 class="panel-title"><strong>Progres Gambar</strong></h2>
+            <h2 class="panel-title"><strong><center>Progres Gambar</center></strong></h2>
           </div>
+          <p></p>
           <div class="panel-body">
             <table class="table table-bordered">
               <thead>

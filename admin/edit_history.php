@@ -76,6 +76,18 @@ if (isset($_GET['id'])) {
                                             <input name="keterangan" class="form-control" id="keterangan" type="text" value="<?php echo $data['keterangan']; ?>" required />
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Tanggal Mulai</label>
+                                        <div class="col-sm-8">
+                                            <input name="tanggal_mulai" class="form-control" id="tanggal_mulai" type="date" value="<?php echo $data['tanggal_mulai']; ?>" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Tanggal Selesai</label>
+                                        <div class="col-sm-8">
+                                            <input name="tanggal_selesai" class="form-control" id="tanggal_selesai" type="date" value="<?php echo $data['tanggal_selesai']; ?>" required />
+                                        </div>
+                                    </div>
 
                                     <!-- Foto -->
                                     <div class="form-group">

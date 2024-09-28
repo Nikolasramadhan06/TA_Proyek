@@ -8,6 +8,8 @@ $nama_proyekselesai = $_POST['nama_proyekselesai'];
 $alamat_proyekselesai = $_POST['alamat_proyekselesai'];
 $anggaran_proyekselesai = $_POST['anggaran_proyekselesai'];
 $keterangan = $_POST['keterangan'];
+$tanggal_mulai = $_POST['tanggal_mulai'];
+$tanggal_selesai = $_POST['tanggal_selesai'];
 
 // Fungsi untuk menangani upload file
 function uploadFile($fileInputName, $currentFile) {
@@ -40,7 +42,9 @@ $updateQuery = "UPDATE hostory SET
     alamat_proyekselesai='$alamat_proyekselesai', 
     anggaran_proyekselesai='$anggaran_proyekselesai', 
     keterangan='$keterangan', 
-    foto_proyekselesai='$foto_proyekselesai'
+    foto_proyekselesai='$foto_proyekselesai',
+    tanggal_mulai='$tanggal_mulai', 
+    tanggal_selesai='$tanggal_selesai'
     WHERE id='$id'";
 
 // Menjalankan query update dan menangani error

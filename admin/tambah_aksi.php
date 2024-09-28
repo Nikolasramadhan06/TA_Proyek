@@ -39,29 +39,4 @@ if (mysqli_query($koneksi, $sql)) {
 mysqli_close($koneksi);
 ?>
 
-<?php
-include 'koneksi.php'; // Sesuaikan dengan file koneksi Anda
 
-// Tangkap data dari formulir
-$nama_proyek = $_POST['nama_proyek'];
-$alamat = $_POST['alamat'];
-$deskripsi = $_POST['deskripsi'];
-$anggaran = $_POST['anggaran'];
-$progres = $_POST['progres'];
-$latitude = $_POST['latitude'];
-$longitude = $_POST['longitude'];
-$tanggal_mulai = $_POST['tanggal_mulai'];
-$tanggal_selesai = $_POST['tanggal_selesai'];
-
-// Query untuk menyimpan data ke dalam database
-$sql = "INSERT INTO proyek (nama_proyek, alamat, deskripsi, anggaran, progres, latitude, longitude, tanggal_mulai, tanggal_selesai)
-        VALUES ('$nama_proyek', '$alamat', '$deskripsi', '$anggaran', '$progres', '$latitude', '$longitude', '$tanggal_mulai', '$tanggal_selesai')";
-
-if (mysqli_query($koneksi, $sql)) {
-    echo "Data berhasil ditambahkan";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
-}
-
-mysqli_close($koneksi);
-?>

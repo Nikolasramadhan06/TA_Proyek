@@ -29,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $keterangan = $_POST['keterangan'];
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
+    $tanggal_mulai = $_POST['tanggal_mulai'];
+    $tanggal_selesai = $_POST['tanggal_selesai'];
 
     // Sanitasi data untuk menghindari SQL Injection
     $nama_proyekselesai = mysqli_real_escape_string($koneksi, $nama_proyekselesai);
@@ -37,12 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $keterangan = mysqli_real_escape_string($koneksi, $keterangan);
     $latitude = mysqli_real_escape_string($koneksi, $latitude);
     $longitude = mysqli_real_escape_string($koneksi, $longitude);
+    $tanggal_mulai = mysqli_real_escape_string($koneksi, $tanggal_mulai);
+    $tanggal_selesai = mysqli_real_escape_string($koneksi, $tanggal_selesai);
 
     // Mengambil data foto 25, 50, 75, dan 100 dari proyek (jika ada)
     $foto_25 = $data['foto_25'];
     $foto_50 = $data['foto_50'];
     $foto_75 = $data['foto_75'];
     $foto_100 = $data['foto_100'];
+    $tanggal_mulai = $data['tanggal_mulai'];
+    $tanggal_selesai = $data['tanggal_selesai'];
 
     // Upload file untuk foto_proyekselesai (jika ada)
     $foto_proyekselesai = null;
@@ -82,8 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert data ke dalam tabel history
-    $sql = "INSERT INTO hostory (nama_proyekselesai, alamat_proyekselesai, anggaran_proyekselesai, keterangan, latitude, longitude, foto_25, foto_50, foto_75, foto_100, foto_proyekselesai) 
-            VALUES ('$nama_proyekselesai', '$alamat_proyekselesai', '$anggaran_proyekselesai', '$keterangan', '$latitude', '$longitude', '$foto_25', '$foto_50', '$foto_75', '$foto_100', '$foto_proyekselesai')";
+    $sql = "INSERT INTO hostory (nama_proyekselesai, alamat_proyekselesai, anggaran_proyekselesai, keterangan, latitude, longitude, tanggal_mulai, tanggal_selesai, foto_25, foto_50, foto_75, foto_100, foto_proyekselesai) 
+            VALUES ('$nama_proyekselesai', '$alamat_proyekselesai', '$anggaran_proyekselesai', '$keterangan', '$latitude', '$longitude', 'tanggal_mulai', 'tanggal_selesai', '$foto_25', '$foto_50', '$foto_75', '$foto_100', '$foto_proyekselesai')";
 
     if (mysqli_query($koneksi, $sql)) {
         // Mengalihkan halaman kembali ke tampil_history.php

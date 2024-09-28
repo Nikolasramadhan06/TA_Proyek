@@ -11,6 +11,8 @@ $anggaran = $_POST['anggaran'];
 $progres = $_POST['progres'];
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
+$tanggal_mulai = $_POST['tanggal_mulai'];
+$tanggal_selesai = $_POST['tanggal_selesai'];
 
 // Fungsi untuk menangani upload file
 function uploadFile($fileInputName, $currentFile) {
@@ -52,7 +54,9 @@ $updateQuery = "UPDATE proyek SET
     foto_25='$foto25',
     foto_50='$foto50',
     foto_75='$foto75',
-    foto_100='$foto100'
+    foto_100='$foto100',
+    tanggal_mulai='$tanggal_mulai', 
+    tanggal_selesai='$tanggal_selesai'
     WHERE id_proyek='$id'";
 
 mysqli_query($koneksi, $updateQuery);
