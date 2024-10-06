@@ -179,6 +179,7 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
                 <tr>
                   <th scope="col">Progres</th>
                   <th scope="col">Gambar</th>
+                  <th scope="col">Tanggal Progres</th>
                 </tr>
               </thead>
               <tbody>
@@ -191,6 +192,12 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
                       <span>Belum Tersedia</span>
                     <?php endif; ?>
                   </td>
+                  <td>
+                  <?php
+                    $tgl_25 = $item->tgl_25;
+                    echo date("d-m-Y", strtotime($tgl_25));
+                  ?>
+                  </td>
                 </tr>
                 <tr>
                   <td>50%</td>
@@ -200,6 +207,12 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
                     <?php else: ?>
                       <span>Belum Tersedia</span>
                     <?php endif; ?>
+                  </td>
+                  <td>
+                  <?php
+                    $tgl_50 = $item->tgl_50;
+                    echo date("d-m-Y", strtotime($tgl_50));
+                  ?>
                   </td>
                 </tr>
                 <tr>
@@ -211,6 +224,12 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
                       <span>Belum Tersedia</span>
                     <?php endif; ?>
                   </td>
+                  <td>
+                  <?php
+                    $tgl_75 = $item->tgl_75;
+                    echo date("d-m-Y", strtotime($tgl_75));
+                  ?>
+                  </td>
                 </tr>
                 <tr>
                   <td>100%</td>
@@ -220,6 +239,12 @@ $title = "Detail dan Lokasi : " . $nama_proyek;
                     <?php else: ?>
                       <span>Belum Tersedia</span>
                     <?php endif; ?>
+                  </td>
+                  <td>
+                  <?php
+                    $tgl_100 = $item->tgl_100;
+                    echo date("d-m-Y", strtotime($tgl_100));
+                  ?>
                   </td>
                 </tr>
               </tbody>

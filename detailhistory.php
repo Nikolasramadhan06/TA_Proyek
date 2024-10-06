@@ -144,11 +144,12 @@ $title = "Detail dan Lokasi : " . $nama_proyekselesai;
             </label>
             <div class="row" style="padding-top: 20px;">
                 <div id="photosContainer" style="display: none;"> 
-                    <table class="table table-bordered">
+                  <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">Progres</th>
                                 <th scope="col">Gambar</th>
+                                <th scope="col">Tanggal Progres</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -157,11 +158,23 @@ $title = "Detail dan Lokasi : " . $nama_proyekselesai;
                                 <td>
                                     <img id="foto_25" src="admin/uploads/<?php echo $foto_25; ?>" alt="Foto 25%" style="width:100%; height:auto;">
                                 </td>
+                                <td>
+                                <?php
+                                  $tgl_25 = $item->tgl_25;
+                                  echo date("d-m-Y", strtotime($tgl_25));
+                                ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>50%</td>
                                 <td>
                                     <img id="foto_50" src="admin/uploads/<?php echo $foto_50; ?>" alt="Foto 50%" style="width:100%; height:auto;">
+                                </td>
+                                <td>
+                                <?php
+                                  $tgl_50 = $item->tgl_50;
+                                  echo date("d-m-Y", strtotime($tgl_50));
+                                ?>
                                 </td>
                             </tr>
                             <tr>
@@ -169,21 +182,34 @@ $title = "Detail dan Lokasi : " . $nama_proyekselesai;
                                 <td>
                                     <img id="foto_75" src="admin/uploads/<?php echo $foto_75; ?>" alt="Foto 75%" style="width:100%; height:auto;">
                                 </td>
+                                <td>
+                                <?php
+                                  $tgl_75 = $item->tgl_75;
+                                  echo date("d-m-Y", strtotime($tgl_75));
+                                ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>100%</td>
                                 <td>
                                     <img id="foto_100" src="admin/uploads/<?php echo $foto_100; ?>" alt="Foto 100%" style="width:100%; height:auto;">
                                 </td>
+                                <td>
+                                <?php
+                                  $tgl_100 = $item->tgl_100;
+                                  echo date("d-m-Y", strtotime($tgl_100));
+                                ?>
+                                </td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                  </table>
             </div>
         </div>
-    </div>
-</div>
+      </div>
+  </div>
 </section>
+
+<?php include "footer.php"; ?>
 
 <script>
     function togglePhotos() {

@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Jalankan query SQL
-    $query = mysqli_query($koneksi, "SELECT * FROM hostory WHERE id='$id'");
+    $query = mysqli_query($koneksi, "SELECT * FROM history_proyek WHERE id='$id'");
 
     // Periksa apakah query berhasil
     if ($query) {

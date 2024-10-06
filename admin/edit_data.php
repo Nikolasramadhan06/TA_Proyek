@@ -29,7 +29,7 @@
                             <?php
                             include '../koneksi.php';
                             $id = $_GET['id_proyek'];
-                            $query = mysqli_query($koneksi, "SELECT * FROM proyek WHERE id_proyek='$id'");
+                            $query = mysqli_query($koneksi, "SELECT * FROM data_proyek WHERE id_proyek='$id'");
                             $data  = mysqli_fetch_array($query);
                             ?>
 
@@ -97,7 +97,6 @@
                                             <input name="tanggal_selesai" class="form-control" id="tanggal_selesai" type="date" value="<?php echo $data['tanggal_selesai']; ?>" required />
                                         </div>
                                     </div>
-
                                     <!-- Foto -->
                                     <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label">Foto 25%</label>
@@ -106,23 +105,49 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Tanggal 25%</label>
+                                        <div class="col-sm-8">
+                                        <input name="tgl_25" class="form-control" id="tgl_25" type="date" value="<?php echo isset($data['tgl_25']) ? $data['tgl_25'] : ''; ?>" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label">Foto 50%</label>
                                         <div class="col-sm-8">
                                             <input name="foto_50" type="file" id="foto_50" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Tanggal 50%</label>
+                                        <div class="col-sm-8">
+                                        <input name="tgl_50" class="form-control" id="tgl_50" type="date" value="<?php echo isset($data['tgl_50']) ? $data['tgl_50'] : ''; ?>" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label">Foto 75%</label>
                                         <div class="col-sm-8">
                                             <input name="foto_75" type="file" id="foto_75" class="form-control" />
                                         </div>
                                     </div>
+                                    <label class="col-sm-2 col-sm-2 control-label">Tanggal 75%</label>
+                                        <div class="col-sm-8">
+                                        <input name="tgl_75" class="form-control" id="tgl_75" type="date" value="<?php echo isset($data['tgl_75']) ? $data['tgl_75'] : ''; ?>" />
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label">Foto 100%</label>
                                         <div class="col-sm-8">
                                             <input name="foto_100" type="file" id="foto_100" class="form-control" />
                                         </div>
                                     </div>
+                                    <label class="col-sm-2 col-sm-2 control-label">Tanggal 100%</label>
+                                        <div class="col-sm-8">
+                                        <input name="tgl_100" class="form-control" id="tgl_100" type="date" value="<?php echo isset($data['tgl_100']) ? $data['tgl_100'] : ''; ?>" />
+                                        </div>
+                                    </div>
+                                    
 
                                     <div class="form-group" style="margin-bottom: 20px;">
                                     <label class="col-sm-2 col-sm-2 control-label"></label>

@@ -45,7 +45,7 @@ include "../koneksi.php";
                                     <tbody>
                                         <?php
                                         $no = 0;
-                                        $data = mysqli_query($koneksi, "select * from visi_misi");
+                                        $data = mysqli_query($koneksi, "select * from profil_perusahaan");
                                         while ($d = mysqli_fetch_array($data)) {
                                             $no++;
                                         ?>

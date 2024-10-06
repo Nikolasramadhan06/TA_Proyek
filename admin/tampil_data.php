@@ -51,6 +51,10 @@ include "../koneksi.php";
                                             <th>Foto 50%</th>
                                             <th>Foto 75%</th>
                                             <th>Foto 100%</th>
+                                            <th>Tanggal 25%</th>
+                                            <th>Tanggal  50%</th>
+                                            <th>Tanggal 75%</th>
+                                            <th>Tanggal  100%</th>
                                             <th>History</th>
                                             <th>Cetak</th>
                                             <th>Aksi</th>
@@ -59,7 +63,7 @@ include "../koneksi.php";
                                     <tbody>
                         <?php
                         $no = 0;
-                        $data = mysqli_query($koneksi, "SELECT * FROM proyek");
+                        $data = mysqli_query($koneksi, "SELECT * FROM data_proyek");
                         while ($d = mysqli_fetch_array($data)) {
                             $no++;
                         ?>
@@ -116,6 +120,42 @@ include "../koneksi.php";
                                     <?php else: ?>
                                         <span>Belum Tersedia</span>
                                     <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                    if (!empty($d['tgl_25'])) {
+                                        echo date('d-m-Y', strtotime($d['tgl_25']));
+                                    } else {
+                                        echo "-"; // Tampilkan tanda strip atau teks lain jika data kosong
+                                    }
+                                    ?>
+                                    </td>
+                                <td>
+                                    <?php 
+                                    if (!empty($d['tgl_50'])) {
+                                      echo date('d-m-Y', strtotime($d['tgl_50']));
+                                    } else {
+                                        echo "-"; // Tampilkan tanda strip atau teks lain jika data kosong
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                    if (!empty($d['tgl_75'])) {
+                                      echo date('d-m-Y', strtotime($d['tgl_75']));
+                                    } else {
+                                        echo "-"; // Tampilkan tanda strip atau teks lain jika data kosong
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                    if (!empty($d['tgl_100'])) {
+                                      echo date('d-m-Y', strtotime($d['tgl_100']));
+                                    } else {
+                                        echo "-"; // Tampilkan tanda strip atau teks lain jika data kosong
+                                    }
+                                    ?>
                                 </td>
                                 <td>
                                     <a href="tambah_history.php?id_proyek=<?php echo $d['id_proyek']; ?>" class="btn-sm  btn-success" ><span class='fas fa-check-double'> Selesai</span></a>

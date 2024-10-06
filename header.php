@@ -15,7 +15,7 @@
   <meta charset="UTF-8">
   <!-- Site Title -->
   <title>CV. PUTRI NAIZ</title>
-  <link rel="icon" href="admin/img/anaiz.png">
+  <link rel="icon" href="admin/img/naiz.png">
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
   <!-- CSS -->
   <link href="assets/css/style.css" rel="stylesheet">

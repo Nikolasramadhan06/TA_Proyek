@@ -13,7 +13,7 @@ if (isset($_POST['id_proyek']) && !empty($_POST['id_proyek'])) {
 }
 
 // Mengambil data proyek berdasarkan ID
-$query = mysqli_query($koneksi, "SELECT * FROM proyek WHERE id_proyek='$id_proyek'");
+$query = mysqli_query($koneksi, "SELECT * FROM data_proyek WHERE id_proyek='$id_proyek'");
 $data = mysqli_fetch_array($query);
 
 if (!$data) {
@@ -31,6 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $longitude = $_POST['longitude'];
     $tanggal_mulai = $_POST['tanggal_mulai'];
     $tanggal_selesai = $_POST['tanggal_selesai'];
+    $tgl_25 = $_POST['tgl_25'];
+    $tgl_50 = $_POST['tgl_50'];
+    $tgl_75 = $_POST['tgl_75'];
+    $tgl_100 = $_POST['tgl_100'];
+    
 
     // Sanitasi data untuk menghindari SQL Injection
     $nama_proyekselesai = mysqli_real_escape_string($koneksi, $nama_proyekselesai);
@@ -41,6 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $longitude = mysqli_real_escape_string($koneksi, $longitude);
     $tanggal_mulai = mysqli_real_escape_string($koneksi, $tanggal_mulai);
     $tanggal_selesai = mysqli_real_escape_string($koneksi, $tanggal_selesai);
+    $tgl_25 = mysqli_real_escape_string($koneksi, $tgl_25);
+    $tgl_50 = mysqli_real_escape_string($koneksi, $tgl_50);
+    $tgl_75 = mysqli_real_escape_string($koneksi, $tgl_75);
+    $tgl_100 = mysqli_real_escape_string($koneksi, $tgl_100);
 
     // Mengambil data foto 25, 50, 75, dan 100 dari proyek (jika ada)
     $foto_25 = $data['foto_25'];
@@ -49,6 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $foto_100 = $data['foto_100'];
     $tanggal_mulai = $data['tanggal_mulai'];
     $tanggal_selesai = $data['tanggal_selesai'];
+    $tgl_25 = $data['tgl_25'];
+    $tgl_50 = $data['tgl_50'];
+    $tgl_75 = $data['tgl_75'];
+    $tgl_100 = $data['tgl_100'];
 
     // Upload file untuk foto_proyekselesai (jika ada)
     $foto_proyekselesai = null;
@@ -88,8 +101,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert data ke dalam tabel history
-    $sql = "INSERT INTO hostory (nama_proyekselesai, alamat_proyekselesai, anggaran_proyekselesai, keterangan, latitude, longitude, tanggal_mulai, tanggal_selesai, foto_25, foto_50, foto_75, foto_100, foto_proyekselesai) 
-            VALUES ('$nama_proyekselesai', '$alamat_proyekselesai', '$anggaran_proyekselesai', '$keterangan', '$latitude', '$longitude', 'tanggal_mulai', 'tanggal_selesai', '$foto_25', '$foto_50', '$foto_75', '$foto_100', '$foto_proyekselesai')";
+    $sql = "INSERT INTO history_proyek (nama_proyekselesai, alamat_proyekselesai, anggaran_proyekselesai, keterangan, latitude, longitude, tanggal_mulai, tanggal_selesai, foto_25, foto_50, foto_75, foto_100, tgl_25, tgl_50, tgl_75, tgl_100, foto_proyekselesai) 
+    VALUES ('$nama_proyekselesai', '$alamat_proyekselesai', '$anggaran_proyekselesai', '$keterangan', '$latitude', '$longitude', '$tanggal_mulai', '$tanggal_selesai', '$foto_25', '$foto_50', '$foto_75', '$foto_100', '$tgl_25', '$tgl_50', '$tgl_75', '$tgl_100', '$foto_proyekselesai')";
 
     if (mysqli_query($koneksi, $sql)) {
         // Mengalihkan halaman kembali ke tampil_history.php

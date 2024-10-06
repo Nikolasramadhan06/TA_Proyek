@@ -29,7 +29,7 @@
                             <?php
                             include '../koneksi.php';
                             $id = $_GET['id'];
-                            $query = mysqli_query($koneksi, "select * from visi_misi where id='$id'");
+                            $query = mysqli_query($koneksi, "select * from profil_perusahaan where id='$id'");
                             $data  = mysqli_fetch_array($query);
                             ?>
 

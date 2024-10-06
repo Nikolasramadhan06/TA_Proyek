@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 
 // menghapus data dari database
-$query = mysqli_query($koneksi, "delete from hostory where id='$id'");
+$query = mysqli_query($koneksi, "delete from history_proyek where id='$id'");
 if ($query) {
     echo "<script>alert('Data Berhasil Dihapus!'); window.location = 'tampil_history.php'</script>";
 } else {

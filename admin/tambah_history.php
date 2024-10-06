@@ -7,7 +7,7 @@ include "../koneksi.php";
 
 // Mengambil data proyek berdasarkan ID
 $id_proyek = $_GET['id_proyek'];
-$query = mysqli_query($koneksi, "SELECT * FROM proyek WHERE id_proyek='$id_proyek'");
+$query = mysqli_query($koneksi, "SELECT * FROM data_proyek WHERE id_proyek='$id_proyek'");
 $data = mysqli_fetch_array($query);
 ?>
 
@@ -80,21 +80,27 @@ $data = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="form-group">
-                                    <label class="col-sm-2 col-sm-4 control-label">Tanggal Mulai</label>
-                                    <div class="col-sm-6">
-                                        <input name="tanggal_mulai" type="date" class="form-control" required />
-                                    </div>
+                                <label class="col-sm-2 col-sm-4 control-label">Tanggal Mulai</label>
+                                <div class="col-sm-6">
+                                    <input name="tanggal_mulai" type="date" class="form-control" value="<?php echo $data['tanggal_mulai']; ?>" required />
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-sm-4 control-label">Tanggal Selesai</label>
-                                    <div class="col-sm-6">
-                                        <input name="tanggal_selesai" type="date" class="form-control" required />
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-4 control-label">Tanggal Selesai</label>
+                                <div class="col-sm-6">
+                                    <input name="tanggal_selesai" type="date" class="form-control" value="<?php echo $data['tanggal_selesai']; ?>" required />
                                 </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-4 control-label">Foto 25%</label>
                                 <div class="col-sm-6">
                                     <img src="uploads/<?php echo $data['foto_25']; ?>" class="img-thumbnail" width="200px" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-4 control-label">Tanggal 25%</label>
+                                <div class="col-sm-6">
+                                    <input name="tgl_25" type="date" class="form-control" value="<?php echo $data['tgl_25']; ?>" required />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -104,15 +110,33 @@ $data = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 col-sm-4 control-label">Tanggal 50%</label>
+                                <div class="col-sm-6">
+                                    <input name="tgl_50" type="date" class="form-control" value="<?php echo $data['tgl_50']; ?>" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 col-sm-4 control-label">Foto 75%</label>
                                 <div class="col-sm-6">
                                     <img src="uploads/<?php echo $data['foto_75']; ?>" class="img-thumbnail" width="200px" />
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-2 col-sm-4 control-label">Tanggal 75%</label>
+                                <div class="col-sm-6">
+                                    <input name="tgl_75" type="date" class="form-control" value="<?php echo $data['tgl_75']; ?>" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 col-sm-4 control-label">Foto 100%</label>
                                 <div class="col-sm-6">
                                     <img src="uploads/<?php echo $data['foto_100']; ?>" class="img-thumbnail" width="200px" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-4 control-label">Tanggal 100%</label>
+                                <div class="col-sm-6">
+                                    <input name="tgl_100" type="date" class="form-control" value="<?php echo $data['tgl_100']; ?>" required />
                                 </div>
                             </div>
                             <div class="form-group">

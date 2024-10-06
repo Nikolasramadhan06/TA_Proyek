@@ -40,7 +40,7 @@
     <li class="nav-item">
         <a class="nav-link" href="profile_cv.php">
             <i class="fas fa-fw fa-user-friends"></i>
-            <span>Profile CV</span></a>
+            <span>Profile Perusahaan</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider">

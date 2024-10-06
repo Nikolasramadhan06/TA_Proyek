@@ -23,7 +23,7 @@ if (empty($_SESSION['username'])) {
 
                     <?php
                     $id = $_GET['id_proyek'];
-                    $query = mysqli_query($koneksi, "select * from proyek where id_proyek='$id'");
+                    $query = mysqli_query($koneksi, "select * from data_proyek where id_proyek='$id'");
                     $data  = mysqli_fetch_array($query);
                     ?>
 

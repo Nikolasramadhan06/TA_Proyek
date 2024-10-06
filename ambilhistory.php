@@ -1,6 +1,6 @@
 <?php
 include "koneksi.php";
-$Q = mysqli_query($koneksi, "SELECT * FROM hostory");
+$Q = mysqli_query($koneksi, "SELECT * FROM history_proyek");
 if ($Q) {
         $posts = array();
         if (mysqli_num_rows($Q)) {

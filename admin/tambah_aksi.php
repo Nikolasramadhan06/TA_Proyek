@@ -25,7 +25,7 @@ $latitude = mysqli_real_escape_string($koneksi, $latitude);
 $longitude = mysqli_real_escape_string($koneksi, $longitude);
 
 // menginput data ke database
-$sql = "INSERT INTO proyek (nama_proyek, alamat, deskripsi, anggaran, latitude, longitude, progres, tanggal_mulai, tanggal_selesai) VALUES ('$nama', '$alamat', '$deskripsi', '$anggaran', '$latitude', '$longitude', '$progres', '$tanggal_mulai', '$tanggal_selesai')";
+$sql = "INSERT INTO data_proyek (nama_proyek, alamat, deskripsi, anggaran, latitude, longitude, progres, tanggal_mulai, tanggal_selesai) VALUES ('$nama', '$alamat', '$deskripsi', '$anggaran', '$latitude', '$longitude', '$progres', '$tanggal_mulai', '$tanggal_selesai')";
 
 if (mysqli_query($koneksi, $sql)) {
     // mengalihkan halaman kembali ke tampil_data.php

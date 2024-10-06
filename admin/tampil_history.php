@@ -23,7 +23,6 @@ include "../koneksi.php";
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Data History Proyek CV. PUTRI NAIZ</h6>
@@ -54,7 +53,7 @@ include "../koneksi.php";
                         <tbody>
                         <?php
                         $no = 0;
-                        $data = mysqli_query($koneksi, "SELECT * FROM hostory");
+                        $data = mysqli_query($koneksi, "SELECT * FROM history_proyek");
                         while ($d = mysqli_fetch_array($data)) {
                             $no++;
                         ?>

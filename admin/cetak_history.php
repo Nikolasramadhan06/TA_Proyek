@@ -4,154 +4,101 @@ require('../libs/fpdf.php');
 include '../koneksi.php';
 
 // Ambil ID proyek dari URL
-$id_proyek = isset($_GET['id']) ? $_GET['id'] : null;
-
-// Jika ID proyek tidak ada, kembalikan pesan error
-if ($id_proyek === null) {
-    die('ID proyek tidak ditemukan');
-}
+$id = $_GET['id'];
 
 // Instance object dan memberikan pengaturan halaman PDF
-$pdf = new FPDF('P', 'mm', 'A4');
+$pdf = new FPDF('L', 'mm', 'A4'); // Mengubah ke Landscape
 $pdf->AddPage();
 
-// Set font untuk judul
-$pdf->SetFont('Times', 'B', 13);
-$pdf->Cell(0, 10, 'DATA PROYEK', 0, 1, 'C');
+// Fungsi untuk menambahkan kop surat di halaman
+function addHeader($pdf) {
+    $pdf->Image('../admin/img/naiz.png', 10, 10, 25); // Logo
+    $pdf->SetFont('Times', 'B', 16);
+    $pdf->Cell(0, 10, 'CV. PUTRI NAIZ', 0, 1, 'C');
+    $pdf->SetFont('Times', '', 12);
+    $pdf->Cell(0, 5, 'BLOK CABANG RT.09 RW.05 DESA RANCAMULYA GABUSWETAN - INDRAMAYU 45263', 0, 1, 'C');
+    $pdf->Cell(0, 5, 'NPWP : 41.283.485.5-437.000', 0, 1, 'C');
+    $pdf->Cell(0, 5, 'Email : putrinaizcv@gmail.com', 0, 1, 'C');
+    $pdf->SetLineWidth(1);
+    $pdf->Line(10, 40, 290, 40);
+    $pdf->SetLineWidth(0.1);
+    $pdf->Line(10, 42, 290, 42);
+    $pdf->Ln(10); // Spasi
+}
+
+// Tambahkan kop surat di halaman pertama
+addHeader($pdf);
+$pdf->SetFont('Times', 'B', 12);
+$pdf->Cell(0, 10, 'DATA PROYEK', 0, 1, 'C'); // Judul terpusat
+$pdf->Ln(5); // Spasi sebelum tabel
 
 // Set font untuk tabel headers
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Times', 'B', 12);
 $pdf->SetFillColor(200, 220, 255);
-
-// Judul tabel
-$pdf->Cell(31, 10, 'Nama Proyek', 1, 0, 'C', true);
-$pdf->Cell(50, 10, 'Alamat', 1, 0, 'C', true);
-$pdf->Cell(35, 10, 'Anggaran', 1, 0, 'C', true);
-$pdf->Cell(37, 10, 'Latitude', 1, 0, 'C', true);
-$pdf->Cell(37, 10, 'Longitude', 1, 1, 'C', true);
+$pdf->Cell(33, 10, 'Nama Proyek', 1, 0, 'C', true);
+$pdf->Cell(60, 10, 'Alamat', 1, 0, 'C', true);
+$pdf->Cell(40, 10, 'Anggaran', 1, 0, 'C', true);
+$pdf->Cell(40, 10, 'Latitude', 1, 0, 'C', true);
+$pdf->Cell(40, 10, 'Longitude', 1, 0, 'C', true);
+$pdf->Cell(33, 10, 'Tanggal Mulai', 1, 0, 'C', true);
+$pdf->Cell(33, 10, 'Tanggal Selesai', 1, 1, 'C', true);
 
 // Data tabel
-$pdf->SetFont('Arial', '', 10);
-
-// Query untuk mengambil data proyek berdasarkan ID
-$query = "SELECT * FROM hostory WHERE id = '$id_proyek'";
+$pdf->SetFont('Times', '', 12);
+$query = "SELECT * FROM history_proyek WHERE id = '$id'";
 $data = mysqli_query($koneksi, $query);
 
 // Pastikan ada data yang diambil
-if ($data = mysqli_fetch_array($data)) {
-    // Memeriksa jika ada data yang hilang
-    $missingData = false;
+if ($d = mysqli_fetch_array($data)) {
+    $anggaran_proyekselesai = ($d['anggaran_proyekselesai']) ? 'Rp. ' . number_format($d['anggaran_proyekselesai'], 0, ',', '.') : 'Rp. 0';
 
-    // Memeriksa jika data kosong
-    if (empty($data['nama_proyekselesai']) || empty($data['alamat_proyekselesai']) || empty($data['anggaran_proyekselesai']) || empty($data['latitude']) || empty($data['longitude'])) {
-        $missingData = true;
-    }
+    // Mengubah format tanggal ke tanggal-bulan-tahun
+    $tanggal_mulai = date('d-m-Y', strtotime($d['tanggal_mulai']));
+    $tanggal_selesai = date('d-m-Y', strtotime($d['tanggal_selesai']));
 
-    // Memeriksa jika foto kosong
-    if (empty($data['foto_25']) || empty($data['foto_50']) || empty($data['foto_75']) || empty($data['foto_100'])) {
-        $missingData = true;
-    }
+    $y = $pdf->GetY();
+    $pdf->Cell(33, 30, $d['nama_proyekselesai'], 1);
+    $pdf->SetXY(43, $y);
+    $pdf->MultiCell(60, 10, $d['alamat_proyekselesai'], 1);
+    $pdf->SetXY(103, $y);
+    $pdf->Cell(40, 30, $anggaran_proyekselesai, 1);
+    $pdf->Cell(40, 30, $d['latitude'], 1);
+    $pdf->Cell(40, 30, $d['longitude'], 1);
+    $pdf->Cell(33, 30, $tanggal_mulai, 1);
+    $pdf->Cell(33, 30, $tanggal_selesai, 1);
+    
+    // Array foto dan tanggal untuk halaman selanjutnya
+    $photos = ['foto_25', 'foto_50', 'foto_75', 'foto_100'];
+    $dates = ['tgl_25', 'tgl_50', 'tgl_75', 'tgl_100'];
 
-    if ($missingData) {
-        $pdf->Cell(0, 10, 'Data atau gambar tidak lengkap', 0, 1, 'C');
-    } else {
-        // Mengatur lebar kolom dengan baik
-        $anggaran = ($data['anggaran_proyekselesai']) ? 'Rp. ' . number_format($data['anggaran_proyekselesai'], 0, ',', '.') : 'Rp. 0';
-
-        // Simpan posisi awal Y
-        $y = $pdf->GetY();
+    foreach ($photos as $index => $photo) {
+        $pdf->AddPage();
+        addHeader($pdf);
+        $photo_path = '../admin/uploads/' . $d[$photo];
         
-        // Menampilkan data
-        $pdf->Cell(31, 30, $data['nama_proyekselesai'], 1);
-        
-        // Menampilkan alamat dengan MultiCell
-        $pdf->SetXY(41, $y);
-        $pdf->MultiCell(50, 10, $data['alamat_proyekselesai'], 1);
-        
-        // Pindah ke posisi X dan Y setelah MultiCell
-        $pdf->SetXY(91, $y);
-        $pdf->Cell(35, 30, $anggaran, 1);
-        $pdf->Cell(37, 30, $data['latitude'], 1);
-        $pdf->Cell(37, 30, $data['longitude'], 1);
-
-        // Pindah ke baris berikutnya
-        $pdf->Ln(50); // Mengurangi jarak sebelum gambar
-
-        // Padding gambar
-        $padding = 10; // Jarak antara gambar dengan teks atau batas halaman
-        $imgWidth = 90; // Lebar gambar (ubah sesuai kebutuhan)
-        $imgHeight = 60; // Tinggi gambar (ubah sesuai kebutuhan)
-
-        // Menambahkan gambar dari direktori
-        $foto_25 = $data['foto_25']; // Nama file untuk gambar 25%
-        $foto_50 = $data['foto_50']; // Nama file untuk gambar 50%
-        $foto_75 = $data['foto_75']; // Nama file untuk gambar 75%
-        $foto_100 = $data['foto_100']; // Nama file untuk gambar 100%
-
-        // Path gambar
-        $foto_25_path = '../admin/uploads/' . $foto_25;
-        $foto_50_path = '../admin/uploads/' . $foto_50;
-        $foto_75_path = '../admin/uploads/' . $foto_75;
-        $foto_100_path = '../admin/uploads/' . $foto_100;
-
-        // Menyimpan posisi Y untuk gambar
-        $y = $pdf->GetY(); // Posisi vertikal untuk gambar
-
-        // Menambahkan gambar foto_25 jika tersedia
-        if (file_exists($foto_25_path)) {
-            $x = 10; // Posisi horizontal untuk foto_25
-            $pdf->Image($foto_25_path, $x, $y, $imgWidth, $imgHeight);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah gambar
-            $pdf->Cell($imgWidth, 10, 'Foto 25%', 0, 0, 'C');
+        if (file_exists($photo_path)) {
+            $img_width = 170; 
+            $img_height = 100; 
+            $x_center = ($pdf->GetPageWidth() - $img_width) / 2; 
+            $pdf->Image($photo_path, $x_center, 60, $img_width, $img_height); 
+            $pdf->SetXY($x_center, 160); // Posisi setelah gambar
+            
+            // Menambahkan keterangan tanggal di bawah foto
+            $date = date('d-m-Y', strtotime($d[$dates[$index]])); // Format tanggal
+            $pdf->Cell($img_width, 10, 'Tanggal: ' . $date, 0, 1, 'C'); // Menampilkan tanggal
+            
+            // Menambahkan keterangan foto
+            $percentage = strtoupper(str_replace('foto_', '', $photo)) . '%'; // Menambahkan %
+            $pdf->SetXY($x_center, 170); // Posisi untuk keterangan foto
+            $pdf->Cell($img_width, 5, 'Foto ' . $percentage, 0, 1, 'C'); 
         } else {
-            $pdf->Cell($imgWidth, $imgHeight, 'Gambar Tidak Tersedia', 1);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah sel kosong
-            $pdf->Cell($imgWidth, 10, 'Foto 25%', 0, 0, 'C');
-        }
-
-        // Menambahkan gambar foto_50 jika tersedia
-        if (file_exists($foto_50_path)) {
-            $x = 10 + $imgWidth + $padding; // Posisi horizontal untuk foto_50
-            $pdf->Image($foto_50_path, $x, $y, $imgWidth, $imgHeight);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah gambar
-            $pdf->Cell($imgWidth, 10, 'Foto 50%', 0, 0, 'C');
-        } else {
-            $pdf->Cell($imgWidth, $imgHeight, 'Gambar Tidak Tersedia', 1);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah sel kosong
-            $pdf->Cell($imgWidth, 10, 'Foto 50%', 0, 0, 'C');
-        }
-
-        // Pindah ke posisi Y untuk baris berikutnya
-        $y += $imgHeight + 15; // Menggeser ke bawah untuk baris gambar berikutnya
-
-        // Menambahkan gambar foto_75 jika tersedia
-        if (file_exists($foto_75_path)) {
-            $x = 10; // Posisi horizontal untuk foto_75
-            $pdf->Image($foto_75_path, $x, $y, $imgWidth, $imgHeight);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah gambar
-            $pdf->Cell($imgWidth, 10, 'Foto 75%', 0, 0, 'C');
-        } else {
-            $pdf->Cell($imgWidth, $imgHeight, 'Gambar Tidak Tersedia', 1);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah sel kosong
-            $pdf->Cell($imgWidth, 10, 'Foto 75%', 0, 0, 'C');
-        }
-
-        // Menambahkan gambar foto_100 jika tersedia
-        if (file_exists($foto_100_path)) {
-            $x = 10 + $imgWidth + $padding; // Posisi horizontal untuk foto_100
-            $pdf->Image($foto_100_path, $x, $y, $imgWidth, $imgHeight);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah gambar
-            $pdf->Cell($imgWidth, 10, 'Foto 100%', 0, 0, 'C');
-        } else {
-            $pdf->Cell($imgWidth, $imgHeight, 'Gambar Tidak Tersedia', 1);
-            $pdf->SetXY($x, $y + $imgHeight + 2); // Posisi keterangan di bawah sel kosong
-            $pdf->Cell($imgWidth, 10, 'Foto 100%', 0, 0, 'C');
+            $pdf->Cell(0, 10, 'Gambar tidak tersedia', 0, 1, 'C');
         }
     }
 } else {
     $pdf->Cell(0, 10, 'Proyek tidak ditemukan', 0, 1, 'C');
 }
 
-// Output file PDF
+// Menyimpan dan menampilkan file PDF
 $pdf->Output();
 ?>

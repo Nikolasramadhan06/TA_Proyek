@@ -1,6 +1,6 @@
 <?php
 include "koneksi.php";
-$Q = mysqli_query($koneksi, "SELECT * FROM proyek");
+$Q = mysqli_query($koneksi, "SELECT * FROM data_proyek");
 if ($Q) {
         $posts = array();
         if (mysqli_num_rows($Q)) {

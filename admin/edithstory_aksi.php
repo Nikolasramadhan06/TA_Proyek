@@ -30,14 +30,14 @@ function uploadFile($fileInputName, $currentFile) {
 }
 
 // Ambil data foto yang ada dari database
-$query = mysqli_query($koneksi, "SELECT * FROM hostory WHERE id='$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM history_proyek WHERE id='$id'");
 $data = mysqli_fetch_array($query);
 
 // Menangani upload foto
 $foto_proyekselesai = uploadFile('foto_proyekselesai', $data['foto_proyekselesai']);
 
 // Menyiapkan query untuk update data
-$updateQuery = "UPDATE hostory SET 
+$updateQuery = "UPDATE history_proyek SET 
     nama_proyekselesai='$nama_proyekselesai', 
     alamat_proyekselesai='$alamat_proyekselesai', 
     anggaran_proyekselesai='$anggaran_proyekselesai', 

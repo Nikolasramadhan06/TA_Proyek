@@ -23,7 +23,7 @@ if (empty($_SESSION['username'])) {
 
                     <?php
                     $id = $_GET['id'];
-                    $query = mysqli_query($koneksi, "select * from hostory where id='$id'");
+                    $query = mysqli_query($koneksi, "select * from history_proyek where id='$id'");
                     $data  = mysqli_fetch_array($query);
                     ?>
 
@@ -73,6 +73,7 @@ if (empty($_SESSION['username'])) {
                                         <?php else: ?>
                                             Tidak ada foto
                                         <?php endif; ?>
+                                        <?php echo date('d-m-Y', strtotime($data['tgl_25'])); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -83,6 +84,7 @@ if (empty($_SESSION['username'])) {
                                         <?php else: ?>
                                             Tidak ada foto
                                         <?php endif; ?>
+                                        <?php echo date('d-m-Y', strtotime($data['tgl_50'])); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,6 +95,7 @@ if (empty($_SESSION['username'])) {
                                         <?php else: ?>
                                             Tidak ada foto
                                         <?php endif; ?>
+                                        <?php echo date('d-m-Y', strtotime($data['tgl_75'])); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -103,6 +106,7 @@ if (empty($_SESSION['username'])) {
                                         <?php else: ?>
                                             Tidak ada foto
                                         <?php endif; ?>
+                                        <?php echo date('d-m-Y', strtotime($data['tgl_100'])); ?>
                                     </td>
                                 </tr>
                                 <tr>

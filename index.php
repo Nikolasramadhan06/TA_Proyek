@@ -100,7 +100,7 @@
         <p style="text-align: justify;">
         <?php
           include "koneksi.php";
-          $data = mysqli_query($koneksi, "SELECT Sejarah FROM visi_misi");
+          $data = mysqli_query($koneksi, "SELECT Sejarah FROM profil_perusahaan");
           while ($d = mysqli_fetch_array($data)) {
               echo $d['Sejarah'];
           }
@@ -111,7 +111,6 @@
   </div>
 </section>
 
-
 <section class="visi-misi">
   <div class="container">
     <div class="row row-cols-2">
@@ -121,7 +120,7 @@
         <p style="text-align: justify;">
           <?php
           include "koneksi.php";
-          $data = mysqli_query($koneksi, "SELECT visi FROM visi_misi");
+          $data = mysqli_query($koneksi, "SELECT visi FROM profil_perusahaan");
           while ($d = mysqli_fetch_array($data)) {
               echo $d['visi'];
           }
@@ -133,7 +132,7 @@
         <p></p>
         <ul style="text-align: justify;">
           <?php
-          $data = mysqli_query($koneksi, "SELECT misi1, misi2, misi3, misi4 FROM visi_misi");
+          $data = mysqli_query($koneksi, "SELECT misi1, misi2, misi3, misi4 FROM profil_perusahaan");
           while ($d = mysqli_fetch_array($data)) {
             echo "<li>- " . $d['misi1'] . "</li>";
             echo "<li>- " . $d['misi2'] . "</li>";
